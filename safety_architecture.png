@@ -1,0 +1,20 @@
+             CRITICAL CONDITION
+                     │
+         ┌───────────┴───────────┐
+         ↓                       ↓
+    PLC E-STOP              AI / SENSOR
+         │                       │
+         └───────────┬───────────┘
+                     ↓
+             SAFETY BRIDGE
+                     │
+       ┌─────────────┼─────────────┐
+       ↓             ↓             ↓
+   ESP32 Motor      PLC       Factory I/O
+      STOP          STOP          STOP
+       │             │             │
+       └─────────────┼─────────────┘
+                     ↓
+                FAULT LOG
+                     ↓
+                  ALERT

@@ -1,0 +1,17 @@
+        FACTORY I/O
+             ↕
+        S7-PLCSIM
+             ↕
+         TIA PORTAL
+             ↕
+           Snap7
+             ↕
+      PYTHON MIDDLEWARE
+       ↙      ↓       ↘
+    ESP32     AI      SQLite
+      ↓        ↓
+ Real Motor  Fault
+ + Sensors   Detection
+      ↘        ↓
+       DIGITAL TWIN
+          DASHBOARD

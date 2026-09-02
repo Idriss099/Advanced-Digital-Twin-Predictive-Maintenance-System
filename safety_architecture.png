@@ -18,3 +18,4 @@
                 FAULT LOG
                      ↓
                   ALERT
+    Latched Safety State → Operator RESET

@@ -50,8 +50,10 @@ The system combines:
 Unlike a conventional Factory I/O automation project, the platform creates a software bridge between the virtual industrial process and a real physical asset.
 
 The objective is to explore how **Cyber-Physical Systems (CPS)** and **Digital Twin technologies** can support intelligent industrial automation, condition monitoring, anomaly detection, and predictive maintenance.
-demo_thumbnail.png
-demo__thumbnail_hmi.png
+
+
+(screenshots_demo_thumbnail.png)
+(screenshots_demo_thumbnail_hmi.png)
 ---
 
 # ⭐ Key Features

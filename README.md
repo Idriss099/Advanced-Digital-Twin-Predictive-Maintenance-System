@@ -12,13 +12,13 @@
 
 ---
 
-## 🎥 Full System Demonstration
+# 🎥 Full System Demonstration
 
 > **Complete integration of the virtual industrial process, PLC control, physical motor, AI monitoring, Digital Twin, and safety system.**
 
 <p align="center">
   <a href="YOUR_VIDEO_LINK_HERE">
-    <img src="docs/demo_thumbnail.png" width="900">
+    <img src="demo_thumbnail.png" width="900">
   </a>
 </p>
 
@@ -85,7 +85,7 @@ The objective is to explore how **Cyber-Physical Systems (CPS)** and **Digital T
 # 🏗️ System Architecture
 
 <p align="center">
-  <img src="docs/architecture.png" width="1000">
+  <img src="architecture.png" width="1000">
 </p>
 
 ### Architecture Overview
@@ -98,7 +98,7 @@ The system is organized into interconnected virtual, physical, intelligence, com
                          │   Virtual Production     │
                          └────────────┬─────────────┘
                                       │
-                               S7-PLCSIM
+                                  S7-PLCSIM
                                       │
                                       ▼
                          ┌──────────────────────────┐
@@ -123,7 +123,7 @@ The system is organized into interconnected virtual, physical, intelligence, com
        │    + Sensors     │                    │ Fault Detection  │
        └────────┬─────────┘                    └──────────────────┘
                 │
-           WiFi / Serial
+            WiFi / Serial
                 │
                 ▼
        ┌─────────────────────────────────────┐
@@ -139,7 +139,7 @@ The system is organized into interconnected virtual, physical, intelligence, com
 # 🏭 System Overview
 
 <p align="center">
-  <img src="docs/system_overview.png" width="950">
+  <img src="system_overview.png" width="950">
 </p>
 
 The experimental platform integrates a **virtual industrial production environment** with a **physical motor condition-monitoring platform**.
@@ -154,27 +154,27 @@ The Python middleware provides the central communication and coordination layer 
 Virtual Industrial Process
           │
           ▼
-     Siemens PLC
+      Siemens PLC
           │
           ▼
-   Python Middleware
+    Python Middleware
           │
-    ┌─────┴─────┐
-    ▼           ▼
-Physical      AI Engine
-Motor         │
-    │         ▼
-    │     Fault Detection
-    │         │
-    └────┬────┘
-         ▼
-   Digital Twin
-         │
-         ▼
- Monitoring / Decision
-         │
-         ▼
- Safety Response
+     ┌────┴─────┐
+     ▼          ▼
+ Physical    AI Engine
+ Motor          │
+     │          ▼
+     │      Fault Detection
+     │          │
+     └────┬─────┘
+          ▼
+     Digital Twin
+          │
+          ▼
+   Monitoring / Decision
+          │
+          ▼
+    Safety Response
 ```
 
 This architecture enables the monitored physical asset and the virtual industrial process to be observed and coordinated through a common software layer.
@@ -218,7 +218,7 @@ The PLC controls and monitors the virtual production process, including:
 # 🏭 2. Factory I/O Virtual Factory
 
 <p align="center">
-  <img src="screenshots/factory_io.png" width="950">
+  <img src="factory_io.png" width="950">
 </p>
 
 Factory I/O provides the virtual industrial environment used to reproduce the production process.
@@ -243,7 +243,7 @@ Factory I/O therefore acts as the **virtual production layer** of the cyber-phys
 # 🖥️ 3. TIA Portal + S7-PLCSIM
 
 <p align="center">
-  <img src="screenshots/tia_portal.png" width="950">
+  <img src="tia_portal.png" width="950">
 </p>
 
 The Siemens automation layer provides the industrial control logic responsible for the virtual production process.
@@ -266,7 +266,7 @@ Communication with the Python middleware is performed through the PLC communicat
 # ⚙️ 4. Physical ESP32 Motor Platform
 
 <p align="center">
-  <img src="screenshots/physical_motor.png" width="800">
+  <img src="physical_motor.png" width="800">
 </p>
 
 A real motor prototype is integrated into the system through an ESP32 microcontroller.
@@ -317,6 +317,7 @@ S7-PLCSIM
      │
    Snap7
      │
+     ▼
 Python Middleware
 ```
 
@@ -340,7 +341,7 @@ The middleware provides a common software layer for collecting, processing, stor
 # 🤖 6. AI-Based Anomaly Detection
 
 <p align="center">
-  <img src="screenshots/ai_detection.png" width="950">
+  <img src="ai_detection.png" width="950">
 </p>
 
 The system incorporates a **Random Forest machine-learning classifier** for anomaly detection.
@@ -375,7 +376,7 @@ Random Forest Model
      └──── Anomaly
               │
               ▼
-          Alert / Safety
+        Alert / Safety
 ```
 
 The AI layer is intended to support condition monitoring and predictive maintenance decisions.
@@ -435,7 +436,6 @@ Health Index
      │████████████
  30% │──────── Maintenance Threshold
      │
-     │
   0% │
      └──────────────────────────► Time
 ```
@@ -447,7 +447,7 @@ Health Index
 # 🪞 9. Real-Time Digital Twin
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="1000">
+  <img src="dashboard.png" width="1000">
 </p>
 
 The project provides a real-time Digital Twin interface for monitoring the physical asset and industrial process.
@@ -499,10 +499,10 @@ PLC / Factory I/O ──┼──► Python Backend
 AI Engine ──────────┘
                          │
                          ▼
-                    WebSocket
+                     WebSocket
                          │
                          ▼
-                  Real-Time Dashboard
+                 Real-Time Dashboard
 ```
 
 This allows system information to be visualized without repeatedly reloading the web page.
@@ -550,7 +550,7 @@ The historical data layer provides a foundation for future machine-learning and 
 # 🛡️ 12. Unified Safety Architecture
 
 <p align="center">
-  <img src="docs/safety_architecture.png" width="950">
+  <img src="safety_architecture.png" width="950">
 </p>
 
 A key feature of the platform is the coordination of safety actions across the virtual and physical environments.
@@ -559,26 +559,26 @@ When a critical condition is detected, the system can coordinate the shutdown of
 
 ```text
           Critical Condition
-                  │
-        ┌─────────┴─────────┐
-        │                   │
-     PLC E-STOP          AI / Sensor Fault
-        │                   │
-        └─────────┬─────────┘
-                  ▼
+                 │
+        ┌────────┴─────────┐
+        │                  │
+    PLC E-STOP        AI / Sensor Fault
+        │                  │
+        └────────┬─────────┘
+                 ▼
         Python Safety Bridge
-                  │
-        ┌─────────┼──────────┐
-        │         │          │
-        ▼         ▼          ▼
-   ESP32 Motor   PLC      Factory I/O
+                 │
+        ┌────────┼──────────┐
+        │        │          │
+        ▼        ▼          ▼
+   ESP32 Motor   PLC     Factory I/O
       STOP       STOP        STOP
-        │         │          │
-        └─────────┼──────────┘
-                  ▼
+        │        │          │
+        └────────┼──────────┘
+                 ▼
             Fault Logging
-                  │
-                  ▼
+                 │
+                 ▼
              Alert System
 ```
 
@@ -593,7 +593,7 @@ This creates a coordinated response between:
 # 🚨 13. Fault Detection and Safety Response
 
 <p align="center">
-  <img src="screenshots/safety_stop.png" width="950">
+  <img src="safety_stop.png" width="950">
 </p>
 
 The system monitors critical operating conditions and can initiate an emergency response.
@@ -679,7 +679,7 @@ The integrated system has been experimentally tested across both virtual and phy
 ### Experimental Evidence
 
 <p align="center">
-  <img src="results/results.png" width="950">
+  <img src="results.png" width="950">
 </p>
 
 > Experimental results, screenshots, plots, and additional demonstration evidence will be progressively added to this repository.
@@ -821,6 +821,8 @@ The project therefore combines **industrial automation, physical sensing, artifi
 
 # 📁 20. Repository Structure
 
+Since all project images are stored directly in the main project folder, the structure is:
+
 ```text
 Integrated-Smart-Factory-Cyber-Physical-System/
 │
@@ -830,45 +832,21 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ├── .env.example
 ├── requirements.txt
 │
-├── python/
-│   ├── main.py
-│   ├── ai/
-│   ├── database/
-│   └── ...
-│
-├── esp32/
-│   └── firmware/
-│
-├── tia_portal/
-│   ├── PLC_program/
-│   └── documentation/
-│
-├── factory_io/
-│   └── scenes/
-│
-├── docs/
-│   ├── architecture.png
-│   ├── system_overview.png
-│   ├── safety_architecture.png
-│   ├── wiring_diagram.png
-│   └── demo_thumbnail.png
-│
-├── screenshots/
-│   ├── dashboard.png
-│   ├── tia_portal.png
-│   ├── factory_io.png
-│   ├── physical_motor.png
-│   ├── ai_detection.png
-│   └── safety_stop.png
-│
-├── results/
-│   ├── results.png
-│   ├── plots/
-│   └── experiments/
-│
-└── models/
-    └── twin_anomaly_model.pkl
+├── architecture.png
+├── system_overview.png
+├── safety_architecture.png
+├── wiring_diagram.png
+├── demo_thumbnail.png
+├── dashboard.png
+├── tia_portal.png
+├── factory_io.png
+├── physical_motor.png
+├── ai_detection.png
+├── safety_stop.png
+└── results.png
 ```
+
+Your Python, ESP32, TIA Portal, Factory I/O, and model files can remain in their existing locations.
 
 ---
 
@@ -877,7 +855,7 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ## 🏭 Complete System
 
 <p align="center">
-  <img src="docs/system_overview.png" width="950">
+  <img src="system_overview.png" width="950">
 </p>
 
 ---
@@ -885,11 +863,11 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ## 🖥️ Siemens TIA Portal + Factory I/O
 
 <p align="center">
-  <img src="screenshots/tia_portal.png" width="850">
+  <img src="tia_portal.png" width="850">
 </p>
 
 <p align="center">
-  <img src="screenshots/factory_io.png" width="850">
+  <img src="factory_io.png" width="850">
 </p>
 
 ---
@@ -897,7 +875,7 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ## ⚙️ Physical Motor Platform
 
 <p align="center">
-  <img src="screenshots/physical_motor.png" width="750">
+  <img src="physical_motor.png" width="750">
 </p>
 
 ---
@@ -905,7 +883,7 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ## 🪞 Digital Twin Dashboard
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="1000">
+  <img src="dashboard.png" width="1000">
 </p>
 
 ---
@@ -913,7 +891,7 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ## 🤖 AI Anomaly Detection
 
 <p align="center">
-  <img src="screenshots/ai_detection.png" width="1000">
+  <img src="ai_detection.png" width="1000">
 </p>
 
 ---
@@ -921,7 +899,7 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ## 🛡️ Unified Safety Response
 
 <p align="center">
-  <img src="screenshots/safety_stop.png" width="950">
+  <img src="safety_stop.png" width="950">
 </p>
 
 ---
@@ -1043,4 +1021,3 @@ This project is released under the license included in this repository.
 **Virtual Factory × Physical Asset × Artificial Intelligence × Digital Twin**
 
 </p>
-

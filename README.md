@@ -16,10 +16,17 @@
 
 > **Complete integration of the virtual industrial process, PLC control, physical motor, AI monitoring, Digital Twin, and safety system.**
 
-**▶️ Watch the complete demonstration:**
-`[ADD VIDEO LINK HERE]`
+<p align="center">
+  <a href="YOUR_VIDEO_LINK_HERE">
+    <img src="docs/demo_thumbnail.png" width="900">
+  </a>
+</p>
 
-**Demo highlights:**
+<p align="center">
+  ▶️ <b><a href="YOUR_VIDEO_LINK_HERE">Watch the Complete System Demonstration</a></b>
+</p>
+
+### Demonstration Highlights
 
 * Siemens TIA Portal PLC control
 * S7-PLCSIM virtual PLC
@@ -32,10 +39,8 @@
 * Health Index calculation
 * RUL estimation
 * PLC ↔ physical system coordination
-* Unified emergency shutdown
+* Unified safety shutdown
 * Fault logging and monitoring
-
-> 📌 **Note:** A demonstration video and project images will be added to this repository.
 
 ---
 
@@ -51,9 +56,6 @@ Unlike a conventional Factory I/O automation project, the platform creates a sof
 
 The objective is to explore how **Cyber-Physical Systems (CPS)** and **Digital Twin technologies** can support intelligent industrial automation, condition monitoring, anomaly detection, and predictive maintenance.
 
-
-(screenshots_demo_thumbnail.png)
-(screenshots_demo_thumbnail_hmi.png)
 ---
 
 # ⭐ Key Features
@@ -82,50 +84,43 @@ The objective is to explore how **Cyber-Physical Systems (CPS)** and **Digital T
 
 # 🏗️ System Architecture
 
+<p align="center">
+  <img src="docs/architecture.png" width="1000">
+</p>
+
+### Architecture Overview
+
+The system is organized into interconnected virtual, physical, intelligence, communication, and data layers.
+
 ```text
                          ┌──────────────────────────┐
                          │       FACTORY I/O        │
                          │   Virtual Production     │
-                         │                          │
-                         │ Conveyors / Sensors /    │
-                         │ Sorter / Production      │
                          └────────────┬─────────────┘
-                                      │
                                       │
                                S7-PLCSIM
                                       │
                                       ▼
                          ┌──────────────────────────┐
                          │       TIA PORTAL         │
-                         │                          │
-                         │   Siemens PLC Control    │
-                         │                          │
-                         │ START / STOP / RESET     │
-                         │ Conveyor / VFD / Safety  │
+                         │    Siemens PLC Control   │
                          └────────────┬─────────────┘
                                       │
                                     Snap7
                                       │
                                       ▼
                   ┌────────────────────────────────────┐
-                  │        PYTHON INDUSTRIAL           │
-                  │           MIDDLEWARE                │
+                  │      PYTHON INDUSTRIAL MIDDLEWARE  │
                   │                                    │
-                  │ Flask │ WebSocket │ SQLite        │
-                  │ Safety Bridge │ AI │ Analytics    │
+                  │ Flask │ WebSocket │ Safety │ AI   │
                   └──────────┬─────────────┬───────────┘
                              │             │
                 ┌────────────┘             └─────────────┐
-                │                                        │
                 ▼                                        ▼
        ┌──────────────────┐                    ┌──────────────────┐
-       │     ESP32        │                    │    AI ENGINE     │
-       │                  │                    │                  │
-       │ Real Motor       │                    │ Random Forest    │
-       │ Encoder          │                    │ Fault Detection  │
-       │ MPU6050          │                    │                  │
-       │ DS18B20          │                    │ Sensor Features  │
-       │ Current Sensor   │                    │                  │
+       │      ESP32       │                    │    AI ENGINE     │
+       │    Real Motor    │                    │  Random Forest   │
+       │    + Sensors     │                    │ Fault Detection  │
        └────────┬─────────┘                    └──────────────────┘
                 │
            WiFi / Serial
@@ -133,19 +128,27 @@ The objective is to explore how **Cyber-Physical Systems (CPS)** and **Digital T
                 ▼
        ┌─────────────────────────────────────┐
        │          DIGITAL TWIN               │
-       │                                     │
-       │ Real-Time Dashboard                 │
-       │ RPM / Temperature / Current         │
-       │ Vibration / Health / RUL            │
-       │ AI Status / PLC Status / Alarms     │
+       │       Real-Time Dashboard           │
+       │  RPM / Temp / Current / Vibration   │
+       │      Health / RUL / AI / PLC        │
        └─────────────────────────────────────┘
 ```
 
 ---
 
-# 🔄 Cyber-Physical Data Flow
+# 🏭 System Overview
 
-The system operates through a continuous interaction between the virtual and physical environments.
+<p align="center">
+  <img src="docs/system_overview.png" width="950">
+</p>
+
+The experimental platform integrates a **virtual industrial production environment** with a **physical motor condition-monitoring platform**.
+
+The Python middleware provides the central communication and coordination layer between the PLC environment, physical motor, AI engine, database, and Digital Twin dashboard.
+
+---
+
+# 🔄 Cyber-Physical Data Flow
 
 ```text
 Virtual Industrial Process
@@ -214,11 +217,15 @@ The PLC controls and monitors the virtual production process, including:
 
 # 🏭 2. Factory I/O Virtual Factory
 
+<p align="center">
+  <img src="screenshots/factory_io.png" width="950">
+</p>
+
 Factory I/O provides the virtual industrial environment used to reproduce the production process.
 
 The virtual environment allows the industrial control logic to be tested without requiring a complete physical production line.
 
-### Monitored signals
+### Monitored Signals
 
 * Conveyor state
 * VFD command
@@ -233,7 +240,34 @@ Factory I/O therefore acts as the **virtual production layer** of the cyber-phys
 
 ---
 
-# ⚙️ 3. Physical ESP32 Motor Platform
+# 🖥️ 3. TIA Portal + S7-PLCSIM
+
+<p align="center">
+  <img src="screenshots/tia_portal.png" width="950">
+</p>
+
+The Siemens automation layer provides the industrial control logic responsible for the virtual production process.
+
+The PLC environment handles:
+
+* Industrial sequencing
+* Conveyor control
+* VFD commands
+* Digital I/O
+* Sensor states
+* Production counters
+* Safety conditions
+* Operator commands
+
+Communication with the Python middleware is performed through the PLC communication layer.
+
+---
+
+# ⚙️ 4. Physical ESP32 Motor Platform
+
+<p align="center">
+  <img src="screenshots/physical_motor.png" width="800">
+</p>
 
 A real motor prototype is integrated into the system through an ESP32 microcontroller.
 
@@ -270,7 +304,7 @@ Telemetry can be transferred through:
 
 ---
 
-# 📡 4. Industrial Communication Layer
+# 📡 5. Industrial Communication Layer
 
 The Python middleware acts as the communication bridge between the virtual industrial environment and the physical platform.
 
@@ -303,7 +337,11 @@ The middleware provides a common software layer for collecting, processing, stor
 
 ---
 
-# 🤖 5. AI-Based Anomaly Detection
+# 🤖 6. AI-Based Anomaly Detection
+
+<p align="center">
+  <img src="screenshots/ai_detection.png" width="950">
+</p>
 
 The system incorporates a **Random Forest machine-learning classifier** for anomaly detection.
 
@@ -344,7 +382,7 @@ The AI layer is intended to support condition monitoring and predictive maintena
 
 ---
 
-# ❤️ 6. Multi-Sensor Health Index
+# ❤️ 7. Multi-Sensor Health Index
 
 A unified **Health Index** is calculated from multiple physical measurements.
 
@@ -354,7 +392,7 @@ The current prototype combines:
 * Temperature
 * Motor current
 
-The implemented weighting is:
+### Implemented Weighting
 
 ```text
 Vibration      → 50%
@@ -367,22 +405,20 @@ The resulting condition indicator ranges from:
 ```text
 100% ───────────────── Healthy
  │
- │
  │       Normal operation
  │
  ▼
 30%  ─────────────── Maintenance threshold
  │
- │
  ▼
-0%   ─────────────── Critical condition
+0%   ─────────────── Critical
 ```
 
 The Health Index provides a simplified condition indicator for the monitored asset.
 
 ---
 
-# ⏳ 7. Remaining Useful Life Estimation
+# ⏳ 8. Remaining Useful Life Estimation
 
 The prototype includes a **health-index-based Remaining Useful Life (RUL) estimation method**.
 
@@ -408,7 +444,11 @@ Health Index
 
 ---
 
-# 🪞 8. Real-Time Digital Twin
+# 🪞 9. Real-Time Digital Twin
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="1000">
+</p>
 
 The project provides a real-time Digital Twin interface for monitoring the physical asset and industrial process.
 
@@ -443,7 +483,7 @@ The Digital Twin provides a unified visualization layer connecting the physical 
 
 ---
 
-# 🌐 9. Real-Time Web Dashboard
+# 🌐 10. Real-Time Web Dashboard
 
 The backend is implemented using:
 
@@ -469,7 +509,7 @@ This allows system information to be visualized without repeatedly reloading the
 
 ---
 
-# 🗄️ 10. Historical Data and Fault Logging
+# 🗄️ 11. Historical Data and Fault Logging
 
 SQLite is used to maintain historical system information.
 
@@ -507,7 +547,11 @@ The historical data layer provides a foundation for future machine-learning and 
 
 ---
 
-# 🛡️ 11. Unified Safety Architecture
+# 🛡️ 12. Unified Safety Architecture
+
+<p align="center">
+  <img src="docs/safety_architecture.png" width="950">
+</p>
 
 A key feature of the platform is the coordination of safety actions across the virtual and physical environments.
 
@@ -546,7 +590,11 @@ This creates a coordinated response between:
 
 ---
 
-# 🚨 12. Fault Detection and Safety Response
+# 🚨 13. Fault Detection and Safety Response
+
+<p align="center">
+  <img src="screenshots/safety_stop.png" width="950">
+</p>
 
 The system monitors critical operating conditions and can initiate an emergency response.
 
@@ -561,7 +609,7 @@ The safety mechanism is designed around:
 * Fault logging
 * Email notification
 
-### Example sequence
+### Example Sequence
 
 ```text
 Abnormal Sensor Condition
@@ -585,7 +633,7 @@ Operator Reset
 
 ---
 
-# 🔔 13. Automated Alerts
+# 🔔 14. Automated Alerts
 
 The system can generate email notifications when important faults or safety events occur.
 
@@ -602,11 +650,11 @@ This extends the system from passive monitoring toward **automated maintenance n
 
 ---
 
-# 📊 14. Experimental Results
+# 📊 15. Experimental Results
 
 The integrated system has been experimentally tested across both virtual and physical environments.
 
-### Current capabilities
+### Current Capabilities
 
 | Capability                   | Status |
 | ---------------------------- | :----: |
@@ -628,11 +676,17 @@ The integrated system has been experimentally tested across both virtual and phy
 | Unified safety response      |    ✅   |
 | Email notifications          |    ✅   |
 
-> Experimental results, screenshots, plots, and demonstration evidence will be added to the repository.
+### Experimental Evidence
+
+<p align="center">
+  <img src="results/results.png" width="950">
+</p>
+
+> Experimental results, screenshots, plots, and additional demonstration evidence will be progressively added to this repository.
 
 ---
 
-# 🧪 15. Virtual + Physical Experimental Platform
+# 🧪 16. Virtual + Physical Experimental Platform
 
 The platform consists of two complementary environments.
 
@@ -668,9 +722,9 @@ Together, the two environments create an experimental platform for studying **vi
 
 ---
 
-# 🔬 16. Research Relevance
+# 🔬 17. Research Relevance
 
-This project explores several important Industry 4.0 research domains:
+This project explores several important Industry 4.0 research domains.
 
 ### Digital Transformation
 
@@ -705,7 +759,7 @@ This project explores several important Industry 4.0 research domains:
 
 ---
 
-# 🧩 17. What Makes This Project Different?
+# 🧩 18. What Makes This Project Different?
 
 A conventional industrial simulation project may follow:
 
@@ -740,7 +794,7 @@ The project therefore combines **industrial automation, physical sensing, artifi
 
 ---
 
-# 🛠️ 18. Technologies
+# 🛠️ 19. Technologies
 
 | Category                | Technology                   |
 | ----------------------- | ---------------------------- |
@@ -765,7 +819,7 @@ The project therefore combines **industrial automation, physical sensing, artifi
 
 ---
 
-# 📁 19. Repository Structure
+# 📁 20. Repository Structure
 
 ```text
 Integrated-Smart-Factory-Cyber-Physical-System/
@@ -795,17 +849,20 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 ├── docs/
 │   ├── architecture.png
 │   ├── system_overview.png
+│   ├── safety_architecture.png
 │   ├── wiring_diagram.png
-│   └── safety_architecture.png
+│   └── demo_thumbnail.png
 │
 ├── screenshots/
 │   ├── dashboard.png
 │   ├── tia_portal.png
 │   ├── factory_io.png
 │   ├── physical_motor.png
-│   └── ai_detection.png
+│   ├── ai_detection.png
+│   └── safety_stop.png
 │
 ├── results/
+│   ├── results.png
 │   ├── plots/
 │   └── experiments/
 │
@@ -815,37 +872,61 @@ Integrated-Smart-Factory-Cyber-Physical-System/
 
 ---
 
-# 📸 20. Project Gallery
+# 📸 21. Project Gallery
 
-> **Project photographs and experimental screenshots will be added here.**
+## 🏭 Complete System
 
-## System Overview
-
-`[ADD SYSTEM OVERVIEW IMAGE HERE]`
-
-## TIA Portal + Factory I/O
-
-`[ADD TIA PORTAL / FACTORY I/O IMAGE HERE]`
-
-## Physical Motor Platform
-
-`[ADD ESP32 + MOTOR + SENSORS IMAGE HERE]`
-
-## Digital Twin Dashboard
-
-`[ADD DASHBOARD IMAGE HERE]`
-
-## AI Anomaly Detection
-
-`[ADD AI DETECTION IMAGE OR GIF HERE]`
-
-## Unified Safety Response
-
-`[ADD SAFETY STOP IMAGE HERE]`
+<p align="center">
+  <img src="docs/system_overview.png" width="950">
+</p>
 
 ---
 
-# 📈 21. Future Research Directions
+## 🖥️ Siemens TIA Portal + Factory I/O
+
+<p align="center">
+  <img src="screenshots/tia_portal.png" width="850">
+</p>
+
+<p align="center">
+  <img src="screenshots/factory_io.png" width="850">
+</p>
+
+---
+
+## ⚙️ Physical Motor Platform
+
+<p align="center">
+  <img src="screenshots/physical_motor.png" width="750">
+</p>
+
+---
+
+## 🪞 Digital Twin Dashboard
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="1000">
+</p>
+
+---
+
+## 🤖 AI Anomaly Detection
+
+<p align="center">
+  <img src="screenshots/ai_detection.png" width="1000">
+</p>
+
+---
+
+## 🛡️ Unified Safety Response
+
+<p align="center">
+  <img src="screenshots/safety_stop.png" width="950">
+</p>
+
+---
+
+# 📈 22. Future Research Directions
 
 The current platform provides a foundation for further research in:
 
@@ -903,7 +984,7 @@ into a unified intelligent decision-making platform.
 
 ---
 
-# 🎓 22. PhD Research Direction
+# 🎓 23. PhD Research Direction
 
 This project serves as a practical foundation for my future research in:
 
@@ -932,7 +1013,7 @@ to equipment degradation in real time.
 
 ---
 
-# 👨‍🔬 23. Author
+# 👨‍🔬 24. Author
 
 ## Bencheikh Mohamed Idris
 
@@ -962,3 +1043,4 @@ This project is released under the license included in this repository.
 **Virtual Factory × Physical Asset × Artificial Intelligence × Digital Twin**
 
 </p>
+

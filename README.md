@@ -218,7 +218,7 @@ The PLC controls and monitors the virtual production process, including:
 # 🏭 2. Factory I/O Virtual Factory
 
 <p align="center">
-  <img src="factory_io.png" width="950">
+  <img src="tia_factoryio.png" width="950">
 </p>
 
 Factory I/O provides the virtual industrial environment used to reproduce the production process.
@@ -240,10 +240,10 @@ Factory I/O therefore acts as the **virtual production layer** of the cyber-phys
 
 ---
 
-# 🖥️ 3. TIA Portal + S7-PLCSIM
+# 🖥️ 3. TIA Portal + S7-PLCSIM + SCADA
 
 <p align="center">
-  <img src="tia_portal.png" width="950">
+  <img src="demo__thumbnail_hmi.png" width="950">
 </p>
 
 The Siemens automation layer provides the industrial control logic responsible for the virtual production process.
@@ -258,6 +258,7 @@ The PLC environment handles:
 * Production counters
 * Safety conditions
 * Operator commands
+* SCADA System
 
 Communication with the Python middleware is performed through the PLC communication layer.
 
@@ -863,11 +864,11 @@ Your Python, ESP32, TIA Portal, Factory I/O, and model files can remain in their
 ## 🖥️ Siemens TIA Portal + Factory I/O
 
 <p align="center">
-  <img src="tia_portal.png" width="850">
+  <img src="demo__thumbnail_hmi.png" width="850">
 </p>
 
 <p align="center">
-  <img src="factory_io.png" width="850">
+  <img src="tia_factoryio.png" width="850">
 </p>
 
 ---

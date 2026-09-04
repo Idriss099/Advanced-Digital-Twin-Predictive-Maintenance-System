@@ -342,7 +342,7 @@ The middleware provides a common software layer for collecting, processing, stor
 # 🤖 6. AI-Based Anomaly Detection
 
 <p align="center">
-  <img src="ai_detection.png" width="950">
+  <img src="ai_detection.gif" width="950">
 </p>
 
 The system incorporates a **Random Forest machine-learning classifier** for anomaly detection.
@@ -594,7 +594,7 @@ This creates a coordinated response between:
 # 🚨 13. Fault Detection and Safety Response
 
 <p align="center">
-  <img src="safety_stop.png" width="950">
+  <img src="safety_stop.gif" width="950">
 </p>
 
 The system monitors critical operating conditions and can initiate an emergency response.
@@ -892,7 +892,7 @@ Your Python, ESP32, TIA Portal, Factory I/O, and model files can remain in their
 ## 🤖 AI Anomaly Detection
 
 <p align="center">
-  <img src="ai_detection.png" width="1000">
+  <img src="ai_detection.gif" width="1000">
 </p>
 
 ---
@@ -900,7 +900,7 @@ Your Python, ESP32, TIA Portal, Factory I/O, and model files can remain in their
 ## 🛡️ Unified Safety Response
 
 <p align="center">
-  <img src="safety_stop.png" width="950">
+  <img src="safety_stop.gif" width="950">
 </p>
 
 ---

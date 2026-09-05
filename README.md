@@ -680,7 +680,8 @@ The integrated system has been experimentally tested across both virtual and phy
 ### Experimental Evidence
 
 <p align="center">
-  <img src="Coming soon" width="950">
+##  <img src="Coming soon" width="950">
+  ##  "Coming soon"
 </p>
 
 > Experimental results, screenshots, plots, and additional demonstration evidence will be progressively added to this repository.

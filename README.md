@@ -543,6 +543,9 @@ SQLite is used to maintain historical system information.
 * Health Index
 * Motor state
 * Corrective action
+<p align="center">
+  <img src="fault_history_screenshot.png" width="950">
+</p>
 
 The historical data layer provides a foundation for future machine-learning and degradation-analysis research.
 

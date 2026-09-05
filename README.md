@@ -1008,6 +1008,132 @@ to equipment degradation in real time.
 🔗 **GitHub:** `https://github.com/Idriss099`
 
 ---
+---
+
+# 🚀 Installation & Usage
+
+[#-installation--usage](#-installation--usage)
+
+## Prerequisites
+
+[#prerequisites](#prerequisites)
+
+Before running the system, make sure you have:
+
+- **Python 3.10+**
+- **Siemens TIA Portal** (for PLC programming/editing)
+- **S7-PLCSIM** (virtual PLC runtime)
+- **Factory I/O** (virtual production environment, licensed)
+- **ESP32 board** + DC motor + sensors (Encoder, MPU6050, DS18B20, current sensor)
+- **Arduino IDE** (to flash the ESP32 firmware)
+- A **Gmail account** with an [App Password](https://support.google.com/accounts/answer/185833) (for email alerts)
+
+---
+
+## 1. Clone the repository
+
+[#1-clone-the-repository](#1-clone-the-repository)
+
+```bash
+git clone https://github.com/Idriss099/Advanced-Digital-Twin-Predictive-Maintenance-System.git
+cd Advanced-Digital-Twin-Predictive-Maintenance-System
+```
+
+## 2. Set up the Python environment
+
+[#2-set-up-the-python-environment](#2-set-up-the-python-environment)
+
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux / macOS
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+## 3. Configure environment variables
+
+[#3-configure-environment-variables](#3-configure-environment-variables)
+
+Copy the example environment file and fill in your own values:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and set:
+- `PLC_IP`, `PLC_RACK`, `PLC_SLOT` → your S7-PLCSIM / PLC connection
+- `ESP32_CONNECTION_MODE`, `ESP32_IP` or `ESP32_SERIAL_PORT` → how the backend talks to the ESP32
+- `SMTP_SENDER_EMAIL`, `SMTP_APP_PASSWORD`, `ALERT_RECIPIENT_EMAIL` → email alerts
+
+## 4. Set up the virtual PLC & factory
+
+[#4-set-up-the-virtual-plc--factory](#4-set-up-the-virtual-plc--factory)
+
+1. Open the PLC project in **TIA Portal** (`/plc_project`).
+2. Download the program to **S7-PLCSIM**.
+3. Open **Factory I/O**, load the matching scene, and connect it to S7-PLCSIM as the I/O driver.
+
+## 5. Flash the ESP32
+
+[#5-flash-the-esp32](#5-flash-the-esp32)
+
+1. Open the firmware in `/esp32` with the **Arduino IDE**.
+2. Set your WiFi credentials (if using WiFi mode) at the top of the sketch.
+3. Select the correct board/port and click **Upload**.
+4. Wire the motor, encoder, MPU6050, DS18B20, and current sensor as described in `/docs/wiring_diagram.png`.
+
+## 6. Run the backend (middleware + AI + Digital Twin server)
+
+[#6-run-the-backend-middleware--ai--digital-twin-server](#6-run-the-backend-middleware--ai--digital-twin-server)
+
+```bash
+python backend/app.py
+```
+
+This starts:
+- The **Snap7** connection to the PLC
+- The **serial/WiFi** listener for the ESP32
+- The **AI anomaly detection** engine
+- The **Flask + WebSocket** server for the Digital Twin dashboard
+- **SQLite** logging of telemetry and faults
+
+## 7. Open the Digital Twin dashboard
+
+[#7-open-the-digital-twin-dashboard](#7-open-the-digital-twin-dashboard)
+
+Once the backend is running, open your browser at:
+
+```
+http://localhost:5000
+```
+
+You should see live RPM, temperature, current, vibration, Health Index, RUL estimation, and PLC/production status.
+
+## 8. Operate the system
+
+[#8-operate-the-system](#8-operate-the-system)
+
+- Use the dashboard **START / STOP / RESET** controls to operate the virtual factory and the physical motor together.
+- Trigger a fault (e.g. block the conveyor in Factory I/O, or induce abnormal vibration on the physical motor) to see the **AI detection → unified safety stop → email alert → fault log** sequence in action.
+
+---
+
+## Troubleshooting
+
+[#troubleshooting](#troubleshooting)
+
+| Issue | Likely cause |
+|---|---|
+| Backend can't connect to PLC | S7-PLCSIM not running, or wrong `PLC_IP`/`PLC_RACK`/`PLC_SLOT` |
+| No data from ESP32 | Wrong `ESP32_CONNECTION_MODE`, wrong port/IP, or firmware not flashed |
+| No email alerts | Gmail App Password not set, or 2FA not enabled on the sender account |
+| Dashboard shows no live data | WebSocket blocked by firewall, or backend not running |
+---
 
 # 📜 License
 
